@@ -11,6 +11,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.Set;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Transactional // 저장하지않고 트랜잭숀으로 자동백업해서 테스트 여려번 돌릴수있게(디비는 저장하는거자나)
@@ -51,6 +53,11 @@ class SpringBootPlaygoundApplicationTests {
         assertThat(userRepo.count()).isEqualTo(3);//기본으로 3개 넣어줬으니까 3개 있는지 확인하는거야
         //이건 풀스캔이 아니야 프라이머리키로 돌리는거야 삐트리의 인덱스를 검색하는거
         //디비는 메타데이터가 없어
+
+
+        //푸드부분
+        Set<Food> foodSet = user.getFoods();
+        //assertThat(foodSet.size()).isPositive();
 
     }
 
@@ -132,7 +139,20 @@ class SpringBootPlaygoundApplicationTests {
     @Test
     @DisplayName("7) 푸드를 추가하자")
     void addFoods() {
+        User user = userRepo.findById(1L).get();
+        user.addMultiFood(
+                new Food("Kingcrab",747),
+                new Food("iceNoodle",787),
+                new Food("arboMuran",210),
+                new Food("tuna",380)
+                );
+        userRepo.save(user);
 
+        Set<Food> foods = userRepo.findById(user.getId()).get().getFoods();
+        assertThat(foods.size()).isGreaterThanOrEqualTo(4);
+        for(Food f:foods) {
+            System.out.println(f);
+        }
     }
 
 }
