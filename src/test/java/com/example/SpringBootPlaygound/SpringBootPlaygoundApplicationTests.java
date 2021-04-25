@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -26,21 +25,21 @@ class SpringBootPlaygoundApplicationTests {
     private UserRepo userRepo;
 
     @Test
-    @DisplayName("IoC 컨테이너 정상동작 확인")
+    @DisplayName("1) IoC 컨테이너 정상동작 확인")
     void contextLoads() {
         assertThat(logger).isNotNull();
         assertThat(ctx).isNotNull();
     }
 
     @Test
-    @DisplayName("Spring Data JDBC MYSQL 연동 확인")
+    @DisplayName("2) Spring Data JDBC MYSQL 연동 확인")
     void readUser() {
 		Long id = 1L;
 		User user = userRepo.findById(id).get();
 		assertThat(user).isNotNull();
 		logger.info("User ID : {} : {}",id,user);
 
-		Long id2 = 3L;
+		Long id2 = 77L;
 		assertThat(userRepo.findById(id2).isPresent()).isFalse();
 
 		Iterable<User> users = userRepo.findAll();
@@ -49,8 +48,7 @@ class SpringBootPlaygoundApplicationTests {
         // 이게 콜렉션인지 확인하는거 필요해
         // 이게 풀스캔이라는건데 안좋은거야
 
-
-        assertThat(userRepo.count()).isEqualTo(2);
+        assertThat(userRepo.count()).isEqualTo(3);//기본으로 3개 넣어줬으니까 3개 있는지 확인하는거야
         //이건 풀스캔이 아니야 프라이머리키로 돌리는거야 삐트리의 인덱스를 검색하는거
         //디비는 메타데이터가 없어
 
@@ -58,7 +56,7 @@ class SpringBootPlaygoundApplicationTests {
 
 
     @Test
-    @DisplayName("이름으로 이메일을 쿼리하고, 이메일로 이름을 조회하는 테스트")
+    @DisplayName("3) DerivedQuery 를 사용해서 데이터를 가져옴 : 이름으로 이메일을 쿼리하고, 이메일로 이름을 조회하는 테스트")
     void readUserNameAndEmail() {
         User user = new User("test@test.com", "tester",
                 new Github("tester","https://www.photo.com"));
@@ -79,7 +77,19 @@ class SpringBootPlaygoundApplicationTests {
     }
 
     @Test
-    @DisplayName("유저 정보 업데이트")
+    @DisplayName("4)새로운 유저 생성이 되는지 확인")
+    void create() {
+        User user = new User("test@zz.com", "hello", new Github("zzz", "https://qqqqq.com") );
+
+        user = userRepo.save(user);
+        assertThat(user.getId()).isGreaterThanOrEqualTo(2);
+        logger.info("Create new user : {}",user);
+        
+        
+    }
+    
+    @Test
+    @DisplayName("5) 유저 정보 업데이트")
     void updateUser() {
         User user =  new User("josh","river@finix.gokor",
                 new Github("josh","www.josh.com"));
@@ -103,12 +113,26 @@ class SpringBootPlaygoundApplicationTests {
         assertThat(step2User.getEmail()).isEqualTo(updateEmail);
     }
 
-    /*
+
     @Test
-    @DisplayName("새로운 유저 생성이 되는지 확인")
-    void create() {
-        User user = new User("test@zz.com", "hiho");
-        user.se
-    }*/
+    @DisplayName("6) 유저 정보 삭제")
+    void delete() {
+        Long id1 = 1L;
+        Long id2 = 2L;
+        Long id3 = 3L;
+
+        User user = userRepo.findById(id1).get();
+        userRepo.delete(user);
+
+        userRepo.deleteById(id2);
+        userRepo.deleteById(id3);
+        assertThat(userRepo.count()).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("7) 푸드를 추가하자")
+    void addFoods() {
+
+    }
 
 }

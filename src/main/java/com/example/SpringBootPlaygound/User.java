@@ -13,8 +13,7 @@ public class User {
     private String email;
     private String name;
 
-    //@Embedded.Nullable
-
+    @Embedded.Nullable // 임베디드고 널을 허용해주겠다
     private Github github;// 1:1 관계일 때에는 이렇게 끼워넣고 끝
 
     //private Set<food> foods = new HashSet<>();
