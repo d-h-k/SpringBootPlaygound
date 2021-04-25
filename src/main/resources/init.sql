@@ -4,6 +4,7 @@ CREATE TABLE user(
     id int auto_increment primary key,
     email varchar(64) unique not null,
     name varchar(64)
+
 );
 
 INSERT INTO user(email, name)
@@ -22,13 +23,13 @@ DROP TABLE IF EXISTS github;
 
 CREATE TABLE github(
     nickname varchar(64),
-    photo varchar(255),
+    photo_url varchar(255),
     `user` int references user(id)
 );
 
 DESC github;
 
-INSERT INTO github(nickname, photo, user)
+INSERT INTO github(nickname, photo_url, user)
     values('hodor', 'https://a.com/ppp',1),
            ('pororo','https://a.com/pororo',2);
 

@@ -60,7 +60,8 @@ class SpringBootPlaygoundApplicationTests {
     @Test
     @DisplayName("이름으로 이메일을 쿼리하고, 이메일로 이름을 조회하는 테스트")
     void readUserNameAndEmail() {
-        User user = new User("test@test.com", "tester");
+        User user = new User("test@test.com", "tester",
+                new Github("tester","https://www.photo.com"));
         String wrongName = "devilCry";
         String wrongEmail = "holy@moly.net";
 
@@ -80,7 +81,8 @@ class SpringBootPlaygoundApplicationTests {
     @Test
     @DisplayName("유저 정보 업데이트")
     void updateUser() {
-        User user =  new User("josh","river@finix.gokor");
+        User user =  new User("josh","river@finix.gokor",
+                new Github("josh","www.josh.com"));
         String updateName = "MacbookPro16";
         String updateEmail = "new_M1X";
         userRepo.save(user);
