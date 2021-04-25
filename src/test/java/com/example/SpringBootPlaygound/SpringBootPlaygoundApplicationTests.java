@@ -45,7 +45,8 @@ class SpringBootPlaygoundApplicationTests {
 
 		Iterable<User> users = userRepo.findAll();
 		//assertThat(((Collection) user).size()).isEqualTo(2);
-        //이거뭐하는거지 왜 에러나는거지굿
+        //이거뭐하는거지 왜 에러나는거지
+        // 이게 콜렉션인지 확인하는거 필요해
     }
 
 }
