@@ -9,8 +9,27 @@ CREATE TABLE user(
 INSERT INTO user(email, name)
     values ('hinux@aho.com', 'honuz'), ('devdong@db.man', 'devdong');
 
---explain select count(*) from user;
---여기서만 안돌고 터미널이나 시퀄에서는 잘도는 쿼리
+
+explain select count(*) from user;
+
+DESC user;
+
+SELECT * from user;
 
 
--- 야 저거 위에 경고창 뜨는거 어캐없애냐 나중에 없애놔라
+
+DROP TABLE IF EXISTS github;
+
+CREATE TABLE github(
+    nickname varchar(64),
+    photo varchar(255),
+    `user` int references user(id)
+);
+
+DESC github;
+
+INSERT INTO github(nickname, photo, user)
+    values('hodor', 'https://a.com/ppp',1),
+           ('pororo','https://a.com/pororo',2);
+
+SELECT * from github;
