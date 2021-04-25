@@ -1,27 +1,35 @@
 package com.example.SpringBootPlaygound;
 
 public class Github {
-    private String nikname;
-    private String photo;
+    private String nickname;
+    private String photoUrl;
 
-    public Github(String nikname, String photo) {
-        this.nikname = nikname;
-        this.photo = photo;
+    public Github(String nickname, String photoUrl) {
+        this.nickname = nickname;
+        this.photoUrl = photoUrl;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getNikname() {
-        return nikname;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setNikname(String nikname) {
-        this.nikname = nikname;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Github{" +
+                "nickname='" + nickname + '\'' +
+                ", photoUrl='" + photoUrl + '\'' +
+                '}';
     }
 }
