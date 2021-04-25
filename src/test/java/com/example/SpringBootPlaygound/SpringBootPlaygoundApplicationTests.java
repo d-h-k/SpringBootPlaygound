@@ -77,6 +77,30 @@ class SpringBootPlaygoundApplicationTests {
 
     }
 
+    @Test
+    @DisplayName("유저 정보 업데이트")
+    void updateUser() {
+        User user =  new User("josh","river@finix.gokor");
+        String updateName = "MacbookPro16";
+        String updateEmail = "new_M1X";
+        userRepo.save(user);
+
+        //name update check
+        User updateUser = userRepo.findByName(user.getName()).get();
+        updateUser.setName(updateName);
+        userRepo.save(updateUser);
+        User step1User = userRepo.findByName(updateName).get();
+        assertThat(step1User.getName()).isEqualTo(updateName);
+
+
+        //Email update check
+        updateUser = userRepo.findByEmail(user.getEmail()).get();
+        updateUser.setEmail(updateEmail);
+        userRepo.save(updateUser);
+        User step2User = userRepo.findByEmail(updateEmail).get();
+        assertThat(step2User.getEmail()).isEqualTo(updateEmail);
+    }
+
     /*
     @Test
     @DisplayName("새로운 유저 생성이 되는지 확인")
