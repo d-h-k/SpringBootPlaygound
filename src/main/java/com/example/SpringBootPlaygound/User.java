@@ -3,8 +3,7 @@ package com.example.SpringBootPlaygound;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Embedded;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class User {
     @Id
@@ -16,8 +15,10 @@ public class User {
     @Embedded.Nullable // 임베디드고 널을 허용해주겠다
     private Github github;// 1:1 관계일 때에는 이렇게 끼워넣고 끝
 
-    private Set<Food> foods = new HashSet<>();
+    private Map<String,Food> foods = new HashMap<>();
 
+    /*
+    private Set<Food> foods = new HashSet<>();
     public void addFood(Food food) {
         foods.add(food);
     }
@@ -30,6 +31,25 @@ public class User {
 
     public Set<Food> getFoods() {
         return foods;
+    }
+    */
+
+    public void addFoods(Food... foods) {
+        for (Food f : foods) {
+            this.foods.put(f.getName(),f);
+        }
+    }
+    public Food getFood (String food) {
+        return foods.get(food);
+    }
+
+    //public Map<String,Food> getFoods () {
+    //   return foods;
+    //}
+
+
+    public Collection<Food> getFoods () {//와 대박 컬렉션
+        return foods.values();
     }
 
     public User(String email, String name, Github github) {

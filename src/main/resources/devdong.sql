@@ -24,8 +24,29 @@ DROP TABLE IF EXISTS food;
 CREATE TABLE food(
   name varchar(64),
   cal int,
-  user int references user(id)
+  user int references user(id),
+  user_key varchar(77),
+  expired_date datetime
 );
+
+
+CREATE INDEX food_idx on food(name); -- 인덱스를 새로 만들어줌
+-- 인덱스가 생기면 pk랑 같이 정렬되고, 원래는 검색에 O(n) 인데, LogN으로 변경됨
+-- 꽁짜 점심은 없다 인덱스 너무많이 만들면 삽입하는데 시간 오래걸림
+
+
+CREATE INDEX food_idx2 on food(name,expired_date); -- 복합인덱스
+-- 복합인덱스 용도 : 두개 조건으로 동시에 검색할 때 사용됨
+select * from food where name='마라탕' and expired_date <= '2021-05-30';
+-- 예를들면 위 쿼리의 의도같은 경우
+
+
+INSERT INTO food (name,cal,user, user_key)values
+('crab',1000,1,'crab'),
+('gogi',250,1,'gogi'),
+('chicken',1770,2,'chicken'),
+('buger',1000,3,'buger');
+
 
 DESC food;
 

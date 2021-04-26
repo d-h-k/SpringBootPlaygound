@@ -11,6 +11,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -56,9 +58,10 @@ class SpringBootPlaygoundApplicationTests {
 
 
         //푸드부분
-        Set<Food> foodSet = user.getFoods();
+        //Set<Food> foodSet = user.getFoods();
         //assertThat(foodSet.size()).isPositive();
-
+        //Map<String, Food> foods = user.getFoods();
+        Collection<Food> foods = user.getFoods();
     }
 
 
@@ -139,8 +142,9 @@ class SpringBootPlaygoundApplicationTests {
     @Test
     @DisplayName("7) 푸드를 추가하자")
     void addFoods() {
-        User user = userRepo.findById(1L).get();
-        user.addMultiFood(
+        Long addFoodUserId = 1L;
+        User user = userRepo.findById(addFoodUserId).get();
+        user.addFoods(
                 new Food("Kingcrab",747),
                 new Food("iceNoodle",787),
                 new Food("arboMuran",210),
@@ -148,8 +152,11 @@ class SpringBootPlaygoundApplicationTests {
                 );
         userRepo.save(user);
 
-        Set<Food> foods = userRepo.findById(user.getId()).get().getFoods();
-        assertThat(foods.size()).isGreaterThanOrEqualTo(4);
+        //Set<Food> foods = userRepo.findById(user.getId()).get().getFoods();
+        //Map<String,Food> foods = userRepo.findById(user.getId()).get().getFoods();
+        Collection<Food> foods = userRepo.findById(addFoodUserId).get().getFoods();
+
+        assertThat(foods.size()).isGreaterThanOrEqualTo(3);
         for(Food f:foods) {
             System.out.println(f);
         }
