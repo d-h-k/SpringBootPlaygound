@@ -16,9 +16,15 @@ public class User {
     @Embedded.Nullable // 임베디드고 널을 허용해주겠다
     private Github github;// 1:1 관계일 때에는 이렇게 끼워넣고 끝
 
-    @MappedCollection(keyColumn = "name")
-    private Map<String,Food> foods = new HashMap<>();
+
+    private List<Food> foods = new ArrayList<>();
+
+
+    // 맵 자료구조
+    //@MappedCollection(keyColumn = "name")
+    //private Map<String,Food> foods = new HashMap<>();
     // 해쉬맵이라 O(1)로 가져올 수 있다
+
 
     /*
     private Set<Food> foods = new HashSet<>();
@@ -39,20 +45,26 @@ public class User {
 
     public void addFoods(Food... foods) {
         for (Food f : foods) {
-            this.foods.put(f.getName(),f);
+            //this.foods.put(f.getName(),f);
+            this.foods.add(f);
         }
     }
     public Food getFood (String food) {
-        return foods.get(food);
+        return foods.get(0);// 에러있음
     }
+
+    //public Food getFood (String food) {
+    //    return foods.get(food);
+    //}
 
     //public Map<String,Food> getFoods () {
     //   return foods;
     //}
 
 
-    public Collection<Food> getFoods () {//와 대박 컬렉션
-        return foods.values();
+    //public Collection<Food> getFoods () {//와 대박 컬렉션
+    public List<Food> getFoods(){
+        return foods;
     }
 
     public User(String email, String name, Github github) {
