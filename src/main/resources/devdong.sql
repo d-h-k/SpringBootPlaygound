@@ -25,7 +25,6 @@ CREATE TABLE food(
   name varchar(64),
   cal int,
   user int references user(id),
-  user_key varchar(77),
   expired_date datetime
 );
 

@@ -2,6 +2,7 @@ package com.example.SpringBootPlaygound;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Embedded;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 
 import java.util.*;
 
@@ -15,7 +16,9 @@ public class User {
     @Embedded.Nullable // 임베디드고 널을 허용해주겠다
     private Github github;// 1:1 관계일 때에는 이렇게 끼워넣고 끝
 
+    @MappedCollection(keyColumn = "name")
     private Map<String,Food> foods = new HashMap<>();
+    // 해쉬맵이라 O(1)로 가져올 수 있다
 
     /*
     private Set<Food> foods = new HashSet<>();
