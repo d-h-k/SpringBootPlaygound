@@ -4,6 +4,7 @@ import com.example.SpringBootPlaygound.honux_class.Food;
 import com.example.SpringBootPlaygound.honux_class.Github;
 import com.example.SpringBootPlaygound.honux_class.User;
 import com.example.SpringBootPlaygound.honux_class.UserRepo;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,6 +22,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Transactional // 저장하지않고 트랜잭숀으로 자동백업해서 테스트 여려번 돌릴수있게(디비는 저장하는거자나)
 @SpringBootTest // 이거 써야 스프링으로 테스트 할수 있고 오토와이어드 쓸 수 있다
+@Disabled
 class SpringBootPlaygoundApplicationTests {
 
 
