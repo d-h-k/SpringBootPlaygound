@@ -1,5 +1,6 @@
-package com.example.SpringBootPlaygound;
+package com.example.SpringBootPlaygound.honux_class;
 
+import com.example.SpringBootPlaygound.honux_class.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

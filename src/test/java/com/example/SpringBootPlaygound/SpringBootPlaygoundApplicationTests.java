@@ -1,5 +1,9 @@
 package com.example.SpringBootPlaygound;
 
+import com.example.SpringBootPlaygound.honux_class.Food;
+import com.example.SpringBootPlaygound.honux_class.Github;
+import com.example.SpringBootPlaygound.honux_class.User;
+import com.example.SpringBootPlaygound.honux_class.UserRepo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.example.SpringBootPlaygound;
+package com.example.SpringBootPlaygound.honux_class;
 
 public class Github {
     private String nickname;

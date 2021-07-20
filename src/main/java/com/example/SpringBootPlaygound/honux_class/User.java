@@ -1,5 +1,7 @@
-package com.example.SpringBootPlaygound;
+package com.example.SpringBootPlaygound.honux_class;
 
+import com.example.SpringBootPlaygound.honux_class.Food;
+import com.example.SpringBootPlaygound.honux_class.Github;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Embedded;
 
