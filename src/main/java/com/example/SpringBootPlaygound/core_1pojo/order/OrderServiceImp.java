@@ -8,8 +8,14 @@ import com.example.SpringBootPlaygound.core_1pojo.order.discountpolicy.FixDiscou
 
 public class OrderServiceImp implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    // 생성자주입이 핵심이군!
+    public OrderServiceImp(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 
     @Override

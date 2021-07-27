@@ -6,7 +6,11 @@ import com.example.SpringBootPlaygound.core_1pojo.member.repo.MemoryMemberReposi
 
 public class MemberServiceImp implements MemberService{
 
-    private MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImp(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public Member join(Member member) {
