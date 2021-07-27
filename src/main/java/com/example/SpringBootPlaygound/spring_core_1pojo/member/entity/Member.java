@@ -1,6 +1,5 @@
-package com.example.SpringBootPlaygound.spring_core_1pojo.entity;
+package com.example.SpringBootPlaygound.spring_core_1pojo.member.entity;
 
-import com.example.SpringBootPlaygound.spring_core_1pojo.entity.Grade;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,10 @@
-package com.example.SpringBootPlaygound.spring_core_1pojo.service;
+package com.example.SpringBootPlaygound.spring_core_1pojo.order;
 
-import com.example.SpringBootPlaygound.spring_core_1pojo.entity.Member;
-import com.example.SpringBootPlaygound.spring_core_1pojo.entity.Order;
-import com.example.SpringBootPlaygound.spring_core_1pojo.repository.MemberRepository;
-import com.example.SpringBootPlaygound.spring_core_1pojo.repository.MemoryMemberRepository;
+import com.example.SpringBootPlaygound.spring_core_1pojo.member.entity.Member;
+import com.example.SpringBootPlaygound.spring_core_1pojo.member.repo.MemberRepository;
+import com.example.SpringBootPlaygound.spring_core_1pojo.member.repo.MemoryMemberRepository;
+import com.example.SpringBootPlaygound.spring_core_1pojo.order.discountpolicy.DiscountPolicy;
+import com.example.SpringBootPlaygound.spring_core_1pojo.order.discountpolicy.FixDiscountPolicy;
 
 public class OrderServiceImp implements OrderService{
 

@@ -1,4 +1,4 @@
-package com.example.SpringBootPlaygound.spring_core_1pojo.entity;
+package com.example.SpringBootPlaygound.spring_core_1pojo.order;
 
 
 import lombok.AllArgsConstructor;
