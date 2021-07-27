@@ -1,12 +1,12 @@
-package com.example.SpringBootPlaygound.spring_core_1pojo;
+package com.example.SpringBootPlaygound.core_1pojo;
 
-import com.example.SpringBootPlaygound.spring_core_1pojo.member.entity.Grade;
-import com.example.SpringBootPlaygound.spring_core_1pojo.member.entity.Member;
-import com.example.SpringBootPlaygound.spring_core_1pojo.order.Order;
-import com.example.SpringBootPlaygound.spring_core_1pojo.member.service.MemberService;
-import com.example.SpringBootPlaygound.spring_core_1pojo.member.service.MemberServiceImp;
-import com.example.SpringBootPlaygound.spring_core_1pojo.order.OrderService;
-import com.example.SpringBootPlaygound.spring_core_1pojo.order.OrderServiceImp;
+import com.example.SpringBootPlaygound.core_1pojo.member.entity.Grade;
+import com.example.SpringBootPlaygound.core_1pojo.member.entity.Member;
+import com.example.SpringBootPlaygound.core_1pojo.order.Order;
+import com.example.SpringBootPlaygound.core_1pojo.member.service.MemberService;
+import com.example.SpringBootPlaygound.core_1pojo.member.service.MemberServiceImp;
+import com.example.SpringBootPlaygound.core_1pojo.order.OrderService;
+import com.example.SpringBootPlaygound.core_1pojo.order.OrderServiceImp;
 
 public class AppLauncher {
     public static Member member1;

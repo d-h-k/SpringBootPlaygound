@@ -1,11 +1,9 @@
-package com.example.SpringBootPlaygound.spring_core_1pojo.order;
+package com.example.SpringBootPlaygound.core_1pojo.order;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.validation.constraints.Size;
 
 @Getter @Setter
 @AllArgsConstructor

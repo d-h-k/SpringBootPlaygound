@@ -1,6 +1,6 @@
-package com.example.SpringBootPlaygound.spring_core_1pojo.member.repo;
+package com.example.SpringBootPlaygound.core_1pojo.member.repo;
 
-import com.example.SpringBootPlaygound.spring_core_1pojo.member.entity.Member;
+import com.example.SpringBootPlaygound.core_1pojo.member.entity.Member;
 
 import java.util.HashMap;
 import java.util.Map;

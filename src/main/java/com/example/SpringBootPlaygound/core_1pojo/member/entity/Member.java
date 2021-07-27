@@ -1,10 +1,12 @@
-package com.example.SpringBootPlaygound.spring_core_1pojo.member.entity;
+package com.example.SpringBootPlaygound.core_1pojo.member.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter @Getter
+@Builder
 @AllArgsConstructor
 public class Member {
     private Long id;
