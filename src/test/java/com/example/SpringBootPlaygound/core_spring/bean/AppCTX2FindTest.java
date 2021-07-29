@@ -18,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //ac.getBean(타입)
 //조회 대상 스프링 빈이 없으면 예외 발생
 //NoSuchBeanDefinitionException: No bean named 'xxxxx' available
+//참고로 구체 타입으로 조회하면 변경시 유연성이 떨어진다.
 
 public class AppCTX2FindTest {
     AnnotationConfigApplicationContext ac
