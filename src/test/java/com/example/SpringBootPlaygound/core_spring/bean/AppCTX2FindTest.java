@@ -11,6 +11,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
+// todo
 //스프링 컨테이너에서 스프링 빈을 찾는 가장 기본적인 조회 방법
 //ac.getBean(빈이름, 타입)
 //ac.getBean(타입)

@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+//todo
+// ac.getBeanDefinitionNames() : 이친구가 하는거다
+
 public class AppCTX1InfoTest {
     AnnotationConfigApplicationContext ac
             = new AnnotationConfigApplicationContext(AppConfig.class);
