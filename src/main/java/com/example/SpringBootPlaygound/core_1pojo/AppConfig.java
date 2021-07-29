@@ -15,15 +15,26 @@ public class AppConfig {
 
     //member 도메인 관련
     public MemberService memberService() {
-        return new MemberServiceImp(new MemoryMemberRepository());
+        return new MemberServiceImp(memberRepository());
     }
 
 
     //order 도메인 관련
     public OrderService orderService () {
-        return new OrderServiceImp(new MemoryMemberRepository(),new FixDiscountPolicy());
+        return new OrderServiceImp(
+                memberRepository(),
+                discountPolicy()
+        );
     }
 
+    public MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
 
+    public DiscountPolicy discountPolicy() {
+        //return new RateDiscountPolicy();
+        return new FixDiscountPolicy();
+    }
+    //todo : 이게 왜 어떤의미인지 잘 모르겠다.. 2021.07.29
 
 }
