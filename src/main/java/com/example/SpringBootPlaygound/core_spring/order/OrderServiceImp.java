@@ -9,6 +9,11 @@ public class OrderServiceImp implements OrderService {
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    //테스트 용도로 잠깐 추가
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
+
     // 생성자주입이 핵심이군!
     public OrderServiceImp(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
