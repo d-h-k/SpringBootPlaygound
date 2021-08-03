@@ -4,6 +4,8 @@ import com.example.SpringBootPlaygound.core_spring.AppConfig;
 import com.example.SpringBootPlaygound.core_spring.member.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -73,6 +75,30 @@ private 생성자로 자식 클래스를 만들기 어렵다.
     // 71페이지
     // 문제점을 극복하고서라도 쓸려면 당신이 스프링 소스코드만큼 잘짜야됨
     // 일반적인 프로그래머들한테는 싱글톤패턴이 안티패턴이라고 할수 있다
+
+
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤패턴 - 스프링 컨테이너를 사용하는 테스트코드")
+    void springContainer() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+
+        //1
+        MemberService memberService1 = ac.getBean("memberService", MemberService.class);
+
+        //2
+        MemberService memberService2 = ac.getBean("memberService", MemberService.class);
+
+        //3
+        System.out.println("memberService1 = " + memberService1);
+        System.out.println("memberService2 = " + memberService2);
+
+        //4
+        assertThat(memberService1).isEqualTo(memberService2);
+        assertThat(memberService1).isSameAs(memberService2);
+        System.out.println("");
+
+    }
 
 
 
