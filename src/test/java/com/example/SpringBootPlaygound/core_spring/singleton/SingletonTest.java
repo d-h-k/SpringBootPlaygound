@@ -77,7 +77,7 @@ private 생성자로 자식 클래스를 만들기 어렵다.
     // 일반적인 프로그래머들한테는 싱글톤패턴이 안티패턴이라고 할수 있다
 
 
-    @Test
+    @Test // 72p
     @DisplayName("스프링 컨테이너와 싱글톤패턴 - 스프링 컨테이너를 사용하는 테스트코드")
     void springContainer() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -97,7 +97,10 @@ private 생성자로 자식 클래스를 만들기 어렵다.
         assertThat(memberService1).isEqualTo(memberService2);
         assertThat(memberService1).isSameAs(memberService2);
         System.out.println("");
-
+        //스프링 컨테이너 덕분에 고객의 요청이 올 때 마다 객체를 생성하는 것이 아니라, 이미 만들어진 객체를 공유
+        //해서 효율적으로 재사용할 수 있다.
+        //> 참고: 스프링의 기본 빈 등록 방식은 싱글톤이지만, 싱글톤 방식만 지원하는 것은 아니다. 요청할 때 마다 새
+        //로운 객체를 생성해서 반환하는 기능도 제공한다. 자세한 내용은 뒤에 빈 스코프에서 설명하겠다
     }
 
 

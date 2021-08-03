@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConfigurationSingletonTest {
 
-    @Test
+    @Test //80p
     void configurationTest() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberServiceImp memberService = ac.getBean("memberService", MemberServiceImp.class);

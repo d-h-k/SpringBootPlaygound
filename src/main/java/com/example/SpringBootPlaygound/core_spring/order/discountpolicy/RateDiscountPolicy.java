@@ -2,7 +2,9 @@ package com.example.SpringBootPlaygound.core_spring.order.discountpolicy;
 
 import com.example.SpringBootPlaygound.core_spring.member.entity.Grade;
 import com.example.SpringBootPlaygound.core_spring.member.entity.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercentage = 10;

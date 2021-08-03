@@ -1,10 +1,12 @@
 package com.example.SpringBootPlaygound.core_spring.member.repo;
 
 import com.example.SpringBootPlaygound.core_spring.member.entity.Member;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component //86페이지 컴포넌트 스캔
 public class MemoryMemberRepository implements MemberRepository {
 
     private static final Map<Long, Member> memory = new HashMap<>();
